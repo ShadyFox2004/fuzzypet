@@ -1,8 +1,8 @@
 fuzzypet: main.o
-	gcc -Wall main.o -o fuzzypet
+	gcc main.o -o fuzzypet
 
 main.o: main.c
-	gcc -c -Wall main.c 
+	gcc -c main.c 
 
 clean:
 	rm *.o fuzzypet
