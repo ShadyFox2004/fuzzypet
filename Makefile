@@ -1,8 +1,5 @@
-fuzzypet: main.o
-	gcc main.o -o fuzzypet
-
-main.o: main.c
-	gcc -c main.c 
+fuzzypet: main.c
+	gcc -g main.c -o fuzzypet
 
 clean:
 	rm *.o fuzzypet
