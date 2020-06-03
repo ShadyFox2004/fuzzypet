@@ -3,7 +3,7 @@
 #include <string.h>
 //#include <sqlite3.h>
 
-int main ()
+int main (int argc, char * argv[])
 {
 	// Pet state variables
 	char* petName = malloc(45);
@@ -42,8 +42,6 @@ int main ()
 			if(ptr)	*ptr = '\0';
 		petFood = atoi(line);
 		
-		printf(petName);
-
 		fclose(file);
 	}
 	else
@@ -54,9 +52,59 @@ int main ()
 
 	// ************ MAIN ************
 	
+	petFood-=5; 
+	petMood-=5;
+	
+	printf("Pet Name : %s \nPet Food : %i%%\nPet Mood : %i%%\n", petName, petFood, petMood);
+	
+	// food state printout
+	if(petFood > 75)
+		printf("%s is Healty.\n", petName);
 
+	else if(petFood > 50)
+		printf("%s is Hungry.\n", petName);
 
+	else if(petFood > 25)
+		printf("%s is starving.\n", petName);
 
+	else if(petFood == 0)
+		printf("%s has died of hunger, you killed her!\n", petName);
+	
+	// mood state printout
+	if(petMood > 100)
+		printf("%s is in heat and look at you like if you are piece of meat, please calmdown the peting.\n", petName);
+
+	else if(petMood > 75)
+		printf("%s is looking at you hapily!\n", petName);
+
+	else if(petMood > 50)
+		printf("%s seams sad.\n", petName);
+
+	else if(petMood > 25) 
+		printf("%s is borded.\n", petName);
+
+	else if(petMood > 0)
+		printf("%s doesn't answher her Name...\n", petName); 
+
+	// pet interaction section
+	if(argc >= 2)
+	{
+		switch(argv[1][0])
+		{
+			case 'f':
+			petFood += 25;
+			printf("You fed %s.\n", petName);
+			break;
+			case 'p':
+			petMood += 25;
+			printf("You peted %s.\n", petName);
+			break;
+			default :
+			printf("\tf = feed\n\tp = pet\n nothing exist%s.\n", petName);
+			break;
+		}
+	}
+	// ************ END *************
 	// Save the current pet state To pet
 	file = NULL;
 	file = fopen("pet","w");
