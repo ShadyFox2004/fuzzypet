@@ -6,5 +6,4 @@ install:
 	cp fuzzypet /bin/.
 uninstall:
 	rm /bin/fuzzypet
-
-
+	rm ~/.fuzzypet
