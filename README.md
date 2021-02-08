@@ -10,3 +10,8 @@ a simple cli pet
 - fuzzypet f for feeding
 
 your config is in $HOME/.fuzzypet file
+
+## OPTIONAL
+you can auto update the fuzzy pet state each time you open your terminal.
+for this aproach, put simply this line in your .bashrc
+- fuzzypet s
